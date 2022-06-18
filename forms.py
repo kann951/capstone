@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
-
+from app.analysis import an_work
 from werkzeug.utils import secure_filename
+import os
 
 
 
@@ -14,6 +15,22 @@ logon_id = None
 @app.route('/')
 def home():
     return render_template('main.html')
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        if os.path.isfile('./static//upload/result_image.png'):
+            os.remove('./static//upload/result_image.png')
+        keyword = request.form['keyword']
+        an_work(keyword)
+        return render_template('result.html')
+
+@app.route('/rewind', methods=['GET', 'POST'])
+def back():
+    if request.method == 'GET':
+        if os.path.isfile('./static//upload/result_image.png'):
+            os.remove('./static//upload/result_image.png')
+        return render_template('main.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])

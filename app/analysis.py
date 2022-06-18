@@ -4,25 +4,27 @@ from konlpy.tag import Hannanum
 import re
 import pandas as pd
 from wordcloud import WordCloud
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
 import sys
 from matplotlib import font_manager, rc
+from matplotlib.gridspec import GridSpec
 font_path = "C:/Windows/Fonts/NGULIM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)
 
+plt.switch_backend('agg')
 
 
 
 
-if __name__ == "__main__":
+def an_work(keyword):
 
 
     title_data = ''
     count = ['1', '11', '21', '31']
 
-    query = '금리'
+    query = keyword
     sdate = '20220601'
     edate = '20220610'
 
@@ -75,19 +77,23 @@ if __name__ == "__main__":
     #         noun_adj_list.append(word)
 
     result = ''
+    plt.clf()
+
     wc = WordCloud(font_path='c:/windows/fonts/malgun.ttf',
                    background_color="white").generate(nouns_set)
-    plt.subplot(211)
-    plt.figsize=(25, 10)
-    plt.axis('off')
-    plt.imshow(wc)
+    fig = plt.figure(figsize=(10, 10))
+    gs = GridSpec(nrows=7, ncols=1)
+    ax1 = fig.add_subplot(gs[:, 0])
+    ax2 = fig.add_subplot(gs[5, 0])
+
+    ax1.axis('off')
+    ax1.imshow(wc)
     # plt.axis('off')
 
 
-    plt.subplot(212)
     # ax2 = self.fig.add_subplot(212)
-    plt.bar(df_count.index, df_count.values)
-    plt.show()
+    ax2.bar(df_count.index, df_count.values)
+    plt.savefig('./static//upload/result_image.png', dpi=300, bbox_inches='tight', pad_inches=0)
     #
     # ax2.imshow(wc)
     # ax2.axis('off')

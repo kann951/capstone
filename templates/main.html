@@ -89,27 +89,12 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="/uploader">Keyword Analysis</a></h1>
+        <h1 class="text-light"><a href="/rewind">Keyword Analysis</a></h1>
         <!-- 로고 클릭시 메인화면으로 -->
 
       </div>
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-        {%if nickname%}
-          <li><a href="#pricing"></a></li>
-          <li><a href="/history">History</a></li>
-          <li><a href="/logout">Logout</a></li>
-        {%else%}
 
-
-          <li><a href="#pricing"></a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Sign Up</a></li>
-
-        {%endif%}
-        </ul>
-      </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
@@ -122,23 +107,17 @@
       <div style="margin-top: 30px;">
         <div class="container" style="padding-top: 100px;">
           <div class="section-title" data-aos="zoom-out">
-            <h2>image upload</h2>
-            <p>이미지 업로드</p>
+            <h2>Enter Keywords</h2>
+            <p>검색어 입력</p>
           </div>
         </div>
 
         <div class="container" style="padding-top: 30px;">
-          <form action="/uploader" method="POST" enctype = "multipart/form-data">
+          <form action="/search" method="POST">
 <!--            <input  type="file" name="file" />-->
 <!--            <input id="s_button" type="submit" />-->
 
-            <div class="filebox">
-              <input class="upload-name" value="file_name" disabled="disabled">
-              <label for="ex_filename" id="s_button">파일 선택</label>
-              <input type="file" name="file" id="ex_filename" class="upload-hidden" />
-
-              <input id="s_button" type="submit"  />
-            </div>
+            <input type="text" name="keyword" class="form-control" id="keyword" placeholder="검색어를 입력하세요"   />
 
           </form>
         </div>

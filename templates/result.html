@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Image Upscaler</title>
+  <title>Keyword Analysis</title>
 
 
   <!-- Favicons -->
@@ -45,9 +45,9 @@
   }
 
   img {
-    width: 600px;
-    height: 400px;
-    object-fit: contain;
+    width: 800px;
+    height: 490px;
+    object-fit: cover;
     }
 
 </style>
@@ -58,27 +58,12 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="/uploader">Image Upscaler</a></h1>
+        <h1 class="text-light"><a href="/rewind">Keyword Analysis</a></h1>
         <!-- 로고 클릭시 메인화면으로 -->
 
       </div>
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-        {%if nickname%}
-          <li><a href="#pricing"></a></li>
-          <li><a href="/history">History</a></li>
-          <li><a href="/logout">Logout</a></li>
-        {%else%}
 
-
-          <li><a href="#pricing"></a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Sign Up</a></li>
-
-        {%endif%}
-        </ul>
-      </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
@@ -86,7 +71,7 @@
 
   <main id="main">
 
-    <section class="inner-page" style="height: 800px;">
+    <section class="inner-page" style="height: 850px;">
       <div style="margin-top: 30px;">
         <div class="container" style="padding-top: 30px;">
           <div class="section-title" data-aos="zoom-out">
@@ -95,15 +80,25 @@
           </div>
         </div>
 
-        <div class="container" style="padding-top: 30px;">
+        <div class="container" style="height: 500px;">
           <div id="con">
-            <img src="{{url_for('static', filename = 'upload/' + image_name)}}">
+            <img src="{{url_for('static', filename = 'upload/result_image.png')}}">
             <br>
-            <a href="{{url_for('static', filename = 'upload/' + image_name)}}" download>
-          <button id="s_button">다운로드</button>
+
           </a>
           </div>
         </div>
+                <div class="container">
+          <form action="/rewind" method="get">
+
+
+            <div class="text-center" >
+              <button id="s_button" type="submit">재검색</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
       </div>
     </section>
 
@@ -112,8 +107,8 @@
  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Image Upscaler</h3>
-      <p>Web Programming Term Project</p>
+      <h3>Keyword Analysis</h3>
+      <p>Capstone Project</p>
     </div>
   </footer><!-- End Footer -->
 
