@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import sys
 from matplotlib import font_manager, rc
 from matplotlib.gridspec import GridSpec
-font_path = "C:/Windows/Fonts/NGULIM.TTF"
+font_path = "./static//assets/NGULIM.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)
 
@@ -79,7 +79,7 @@ def an_work(keyword):
     result = ''
     plt.clf()
 
-    wc = WordCloud(font_path='c:/windows/fonts/malgun.ttf',
+    wc = WordCloud(font_path='./static//assets/malgun.ttf',
                    background_color="white").generate(nouns_set)
     fig = plt.figure(figsize=(10, 10))
     gs = GridSpec(nrows=7, ncols=1)
