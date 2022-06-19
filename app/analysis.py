@@ -9,9 +9,10 @@ import matplotlib.pyplot as plt
 import sys
 from matplotlib import font_manager, rc
 from matplotlib.gridspec import GridSpec
-font_path = "./static//assets/malgun.ttf"
+import seaborn as sns
+font_path = "./static//assets/malgunsl.ttf"
 font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
+plt.rc('font', family=font)
 
 plt.switch_backend('agg')
 
@@ -82,6 +83,7 @@ def an_work(keyword):
     wc = WordCloud(font_path='./static//assets/malgun.ttf',
                    background_color="white").generate(nouns_set)
     fig = plt.figure(figsize=(10, 10))
+    colors = sns.color_palette('winter')
     gs = GridSpec(nrows=7, ncols=1)
     ax1 = fig.add_subplot(gs[:, 0])
     ax2 = fig.add_subplot(gs[5, 0])
@@ -92,7 +94,7 @@ def an_work(keyword):
 
 
     # ax2 = self.fig.add_subplot(212)
-    ax2.bar(df_count.index, df_count.values)
+    ax2.bar(df_count.index, df_count.values, color=colors)
     plt.savefig('./static//upload/result_image.png', dpi=300, bbox_inches='tight', pad_inches=0)
     #
     # ax2.imshow(wc)
