@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import sys
 from matplotlib import font_manager, rc
 from matplotlib.gridspec import GridSpec
-font_path = "./static//assets/NGULIM.TTF"
+font_path = "./static//assets/malgun.ttf"
 font = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font)
 
